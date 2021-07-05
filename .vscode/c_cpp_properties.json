@@ -8,15 +8,15 @@
                 "STM32F103xB="
             ],
             "includePath": [
-                "e:\\Company\\Remote_monitor\\monitor_dev\\Inc",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\Drivers\\CMSIS\\Include",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\DHT11",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\GPRS",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\app",
-                "e:\\Company\\Remote_monitor\\monitor_dev\\SGP30"
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\Inc",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\Drivers\\CMSIS\\Include",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\DHT11",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\GPRS",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\app",
+                "e:\\Company\\Remote_monitor\\gitee\\Remote-Monitor-Dev\\SGP30"
             ],
             "forcedInclude": [],
             "cStandard": "c11",
