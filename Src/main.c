@@ -37,13 +37,7 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
-#include "stm32f1xx_hal.h"
-#include "FreeRTOS.h"
-#include "adc.h"
-#include "rtc.h"
-#include "usart.h"
-#include "gpio.h"
+#include "includes.h"
 
 
 /* USER CODE BEGIN Includes */
@@ -116,15 +110,6 @@ int main(void)
 
 	while (1)
 	{
-		//dht11_task();
-		//sgp30_task();
-		//gprs_task();
-
-		//if(gprs_tm.step == GPRS_STEP_FINISH || HAL_GetTick() >= 120000)
-		//{
-		//	enter_lowPwr();
-		//}
-
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
