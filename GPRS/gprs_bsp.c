@@ -7,9 +7,7 @@
  Description : gprs板级 包含所有gprs的板级基础操作
  ============================================================================
  */
-#include "gprs_bsp.h"
-#include "usart.h"
-#include "stm32f1xx_it.h"
+#include "includes.h"
 
 gprs_RBTypedef gprsRB;
 
@@ -20,7 +18,6 @@ gprs_RBTypedef gprsRB;
  ============================================================================*/
 void USART1_IRQHandler()
 {
-    uint8_t idle_clr;
     uint32_t isrflags   = READ_REG(huart1.Instance->SR);
     if(isrflags & (UART_FLAG_RXNE | UART_FLAG_IDLE) )
     {
@@ -65,7 +62,7 @@ static void gprs_bsp_init()
  ============================================================================*/
 static void gprs_bsp_dly_ms(uint16_t ms)
 {
-    HAL_Delay(ms);
+    osDelay(ms);
 }
 
 /*============================================================================

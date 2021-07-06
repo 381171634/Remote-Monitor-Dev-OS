@@ -3,7 +3,7 @@
 
 #include "common.h"
 
-void enter_lowPwr();
+void lowpower_task(void *argument);
 
 
 #endif

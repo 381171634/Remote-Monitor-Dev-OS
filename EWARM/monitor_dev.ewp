@@ -359,6 +359,9 @@
                     <state>$PROJ_DIR$\..\GPRS</state>
                     <state>$PROJ_DIR$\..\app</state>
                     <state>$PROJ_DIR$\..\SGP30</state>
+                    <state>$PROJ_DIR$\..\freeRTOS</state>
+                    <state>$PROJ_DIR$\..\freeRTOS\include</state>
+                    <state>$PROJ_DIR$\..\freeRTOS\portable</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -624,7 +627,7 @@
                 </option>
                 <option>
                     <name>AUserIncludes</name>
-                    <state></state>
+                    <state>$PROJ_DIR$\..\freeRTOS</state>
                 </option>
                 <option>
                     <name>AExtraOptionsCheckV2</name>
@@ -1179,5 +1182,47 @@
                 <name>$PROJ_DIR$\..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c</name>
             </file>
         </group>
+    </group>
+    <group>
+        <name>FreeRTOS</name>
+        <group>
+            <name>portable</name>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\portable\port.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\portable\portasm.s</name>
+            </file>
+        </group>
+        <group>
+            <name>src</name>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\croutine.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\event_groups.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\heap_4.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\list.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\queue.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\stream_buffer.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\tasks.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\freeRTOS\src\timers.c</name>
+            </file>
+        </group>
+        <file>
+            <name>$PROJ_DIR$\..\freeRTOS\freeRTOS_Entrance.c</name>
+        </file>
     </group>
 </project>

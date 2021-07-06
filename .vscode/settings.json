@@ -9,6 +9,10 @@
         "lowpower.h": "c",
         "stm32f1xx_it.h": "c",
         "adc.h": "c",
-        "proc.h": "c"
+        "proc.h": "c",
+        "freertos.h": "c",
+        "rtos_interface.h": "c",
+        "freertosconfig.h": "c",
+        "includes.h": "c"
     }
 }

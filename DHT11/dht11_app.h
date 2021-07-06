@@ -3,6 +3,7 @@
 
 #include "stm32f1xx_hal.h"
 #include "common.h"
+#include "dht11_bsp.h"
 
 #define DHT11_AVERAGE_CNT   10
 
@@ -29,8 +30,7 @@ typedef struct{
     uint8_t sum;                //校验和
 }dht11DataTypedef;              //dht11单词读取数据
 
-void dht11_task();
-extern taskManageTypedef dht11_tm;
+void dht11_task(void *argument);
 extern dht11ResTypedef dht11Res;
 
 #endif

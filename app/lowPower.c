@@ -8,17 +8,7 @@
  ============================================================================
  */
 
-#include "rtc.h"
-#include "lowPower.h"
-#include "dht11_app.h"
-#include "dht11_bsp.h"
-#include "gprs_app.h"
-#include "sgp30_app.h"
-#include "gprs_bsp.h"
-#include "sgp30_bsp.h"
-#include "gpio.h"
-#include "usart.h"
-
+#include "includes.h"
 /*============================================================================
  低功耗RTC唤醒中断
  ============================================================================*/
@@ -27,7 +17,7 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
     HAL_NVIC_SystemReset();
 }
 
-void lowPwr_GPIO_Set()
+static void lowPwr_GPIO_Set()
 {
     GPIO_InitTypeDef GPIO_InitStruct;
     //GPRS模块的DCDC引脚保持使能，拉低
@@ -64,27 +54,15 @@ void lowPwr_GPIO_Set()
 /*============================================================================
  低功耗进入函数
  ============================================================================*/
-void enter_lowPwr()
+static void enter_lowPwr()
 {
     RTC_AlarmTypeDef alarm;
     RTC_TimeTypeDef time;
     memset((void *)&alarm, 0, sizeof(alarm));
 
-    //任务未完成，因2分超时进入低功耗时，需要对各模块做低功耗处理
-    if(dht11_tm.step != DHT11_STEP_FINISH)
-    {
-        DHT11_POWER_OFF;
-    }
-
-    if(sgp30_tm.step != SGP30_STEP_FINISH)
-    {
-        SGP30_Reset();
-    }
-
-    if(gprs_tm.step != GPRS_STEP_FINISH)
-    {
-        GPRS_POWER_OFF;
-    }
+    DHT11_POWER_OFF;
+    SGP30_Reset();
+    GPRS_POWER_OFF;
 
     lowPwr_GPIO_Set();
 
@@ -109,4 +87,22 @@ void enter_lowPwr()
     SysTick->CTRL = 0x00;   //关闭定时器
     SysTick->VAL = 0x00;    //清空val,清空定时器
     HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON,PWR_STOPENTRY_WFI);
+}
+
+void lowpower_task(void *argument)
+{
+    BaseType_t bit;
+    COMMON_UNUSED(argument);
+
+    while(1)
+    {
+        osDelay(1000);
+        bit = xEventGroupWaitBits(os_eg_sampleCpl,eGprsFinishi,pdFALSE,pdTRUE,0);
+        if(bit == eGprsFinishi || HAL_GetTick() >= 120000)
+        {
+            enter_lowPwr();
+        }
+    }
+
+
 }

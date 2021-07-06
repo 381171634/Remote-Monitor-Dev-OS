@@ -41,7 +41,7 @@
 #include "adc.h"
 #include "common.h"
 #include "gpio.h"
-
+#include "RTOS_Interface.h"
 /* USER CODE BEGIN 0 */
 uint32_t CellVoltage = 0;
 /* USER CODE END 0 */

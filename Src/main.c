@@ -39,6 +39,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f1xx_hal.h"
+#include "FreeRTOS.h"
 #include "adc.h"
 #include "rtc.h"
 #include "usart.h"
@@ -66,9 +67,7 @@ static void MX_NVIC_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-#include "dht11_app.h"
-#include "gprs_app.h"
-#include "sgp30_app.h"
+#include "RTOS_Interface.h"
 #include "lowPower.h"
 /* USER CODE END 0 */
 
@@ -110,20 +109,21 @@ int main(void)
 	/* USER CODE BEGIN 2 */
 	getCellVoltage();
 	/* USER CODE END 2 */
-
+	RTOS_Init();
+	RTOS_Start();
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 
 	while (1)
 	{
-		dht11_task();
-		sgp30_task();
-		gprs_task();
+		//dht11_task();
+		//sgp30_task();
+		//gprs_task();
 
-		if(gprs_tm.step == GPRS_STEP_FINISH || HAL_GetTick() >= 120000)
-		{
-			enter_lowPwr();
-		}
+		//if(gprs_tm.step == GPRS_STEP_FINISH || HAL_GetTick() >= 120000)
+		//{
+		//	enter_lowPwr();
+		//}
 
 		/* USER CODE END WHILE */
 
@@ -181,7 +181,7 @@ void SystemClock_Config(void)
 
 	/**Configure the Systick interrupt time 
     */
-	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
+	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / configTICK_RATE_HZ);
 
 	/**Configure the Systick 
     */

@@ -2,6 +2,7 @@
 #define _SGP30_APP_H
 
 #include "common.h"
+#include "sgp30_bsp.h"
 
 #define SGP30_AVERAGE_CNT   10
 
@@ -22,9 +23,8 @@ typedef struct{
     uint32_t co2_avg;   //二氧化碳均值
 }sgp30ResTypedef;       //sgp30读结果
 
-void sgp30_task();
+void sgp30_task(void *argument);
 
-extern taskManageTypedef sgp30_tm;
 extern sgp30ResTypedef sgp30Res;
 
 
