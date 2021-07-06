@@ -1,3 +1,6 @@
+#ifndef _RTOS_INTERFACE_H
+#define _RTOS_INTERFACE_H
+
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -18,3 +21,5 @@ extern EventGroupHandle_t os_eg_sampleCpl;
 
 void RTOS_Init();
 void RTOS_Start();
+
+#endif
