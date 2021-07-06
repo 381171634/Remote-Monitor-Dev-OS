@@ -1,4 +1,4 @@
-# Remote-Monitor-Dev
+# Remote-Monitor-Dev(OS)
 远程监测的设备代码(FreeRTOS操作系统版本)，在基于stm32CubeMx搭建的裸机程序的基础上加入FreeRTOS操作系统，定时采集环境信息并上报到服务器。包括温湿度采集、空气质量采集、gprs通信、ADC、低功耗等功能.  
 
 使用到的硬件设备:  
